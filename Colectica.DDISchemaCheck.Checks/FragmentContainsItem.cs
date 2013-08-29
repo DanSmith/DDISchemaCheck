@@ -121,7 +121,6 @@ namespace Colectica.DDISchemaCheck.Checks
                     b.AppendLine(string.Format(tableRow,
                         j++,
                         error.QualifiedName.ToString(),
-                        error.QualifiedName.ToString(),
                         error.SourceUri.Split('/').Last(),
                         error.LineNumber, error.LinePosition));
                    

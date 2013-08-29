@@ -37,13 +37,38 @@ namespace Colectica.DDISchemaCheck.App
             bool? result = dialog.ShowDialog();
             if (result == true)
             {
-                ReportGenerator helpers = new ReportGenerator();
-                string filename = dialog.FileName;
+                try
+                {
+                    this.ProgressBar.Visibility = System.Windows.Visibility.Visible;
+                    this.ProgressBar.IsIndeterminate = true;
+                    var uiThreadScheduler = TaskScheduler.FromCurrentSynchronizationContext();
 
-                string reportFilename = helpers.CreateReport(filename);
-                Uri uri = new Uri(reportFilename, UriKind.Absolute);
-                string path = uri.ToString();
-                Process.Start(path);
+                    var t = Task.Factory.StartNew(() =>
+                    {
+                        ReportGenerator helpers = new ReportGenerator();
+                        string filename = dialog.FileName;
+
+                        string reportFilename = helpers.CreateReport(filename);
+                        Uri uri = new Uri(reportFilename, UriKind.Absolute);
+                        string path = uri.ToString();
+                        Process.Start(path);
+                    })
+                    .ContinueWith(prevTask =>
+                    {
+                        if (prevTask.Exception != null)
+                        {
+                            MessageBox.Show(prevTask.Exception.Message);
+                        }
+
+                        this.ProgressBar.IsIndeterminate = false;
+                        this.ProgressBar.Visibility = System.Windows.Visibility.Hidden;
+                    }, uiThreadScheduler);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
             

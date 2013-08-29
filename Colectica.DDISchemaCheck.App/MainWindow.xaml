@@ -6,6 +6,7 @@
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
             <TextBlock TextWrapping="Wrap" Text="This tool performs structural and spelling checks on the DDI Schema. Select the instance.xsd to create a report." FontSize="22"/>
             <Button Content="Select DDI instance.xsd file" Margin="10" FontSize="22" Click="Button_Click" />
+            <ProgressBar x:Name="ProgressBar" Margin="10" Height="22" Visibility="Hidden"/>
         </StackPanel>
         
 
