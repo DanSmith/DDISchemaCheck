@@ -38,7 +38,10 @@ namespace Colectica.DDISchemaCheck.Checks
         {
             try
             {
-                using (XmlReader xmlReader = XmlReader.Create(filename))
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.DtdProcessing = DtdProcessing.Parse;
+
+                using (XmlReader xmlReader = XmlReader.Create(filename, settings))
                 {
                     if (xmlReader.MoveToContent() == XmlNodeType.Element)
                     {

@@ -129,7 +129,7 @@ namespace Colectica.DDISchemaCheck.Checks
             }
             else
             {
-                b.Append("<div class=\"alert alert-success\">No duplicate Element names detected for referenceable types.</div>");
+                b.Append("<div class=\"alert alert-success\">All Versionables and Maintainables found with FragmentInstance inclusion.</div>");
             }
             
             return b.ToString();

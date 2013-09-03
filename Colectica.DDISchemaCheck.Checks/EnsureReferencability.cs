@@ -85,7 +85,7 @@ namespace Colectica.DDISchemaCheck.Checks
 
             if (noChoice.Count > 0)
             {
-                b.Append(@"<div class=""alert alert-danger"">Versionables and Maintainables not in a xs:Choice.</div>");
+                b.Append(@"<div class=""alert alert-danger"">Versionables and Maintainables not in a referenceable xs:Choice format.</div>");
                 b.AppendLine(@"<table class=""table"">
                                 <thead>
                                   <tr>
@@ -108,12 +108,12 @@ namespace Colectica.DDISchemaCheck.Checks
             }
             else
             {
-                b.Append("<div class=\"alert alert-success\">All Versionables and Maintainables are in a xs:Choice.</div>");
+                b.Append("<div class=\"alert alert-success\">All Versionables and Maintainables are in a referenceable xs:Choice format.</div>");
             }
 
             if (wrongNumberChoice.Count > 0)
             {
-                b.Append(@"<div class=""alert alert-danger"">Wrong number of elements in Versionables and Maintainables xs:Choice.</div>");
+                b.Append(@"<div class=""alert alert-danger"">Wrong number of elements in Versionables and Maintainables referenceable xs:Choice format.</div>");
                 b.AppendLine(@"<table class=""table"">
                                 <thead>
                                   <tr>
@@ -136,12 +136,12 @@ namespace Colectica.DDISchemaCheck.Checks
             }
             else
             {
-                b.Append("<div class=\"alert alert-success\">Correct number of elements in all Versionables and Maintainables xs:Choice.</div>");
+                b.Append("<div class=\"alert alert-success\">Correct number of elements in all Versionables and Maintainables referenceable xs:Choice format.</div>");
             }
 
             if (wrongFormatChoice.Count > 0)
             {
-                b.Append(@"<div class=""alert alert-danger"">Missing xxxReference to Versionables and Maintainables in xs:Choice.</div>");
+                b.Append(@"<div class=""alert alert-danger"">Missing xxxReference to Versionables and Maintainables in referenceable xs:Choice format.</div>");
                 b.AppendLine(@"<table class=""table"">
                                 <thead>
                                   <tr>
@@ -164,7 +164,7 @@ namespace Colectica.DDISchemaCheck.Checks
             }
             else
             {
-                b.Append("<div class=\"alert alert-success\">Correct number of elements in all Versionables and Maintainables xs:Choice.</div>");
+                b.Append("<div class=\"alert alert-success\">Correct number of elements in all Versionables and Maintainables referenceable xs:Choice format.</div>");
             }
 
             return b.ToString();
