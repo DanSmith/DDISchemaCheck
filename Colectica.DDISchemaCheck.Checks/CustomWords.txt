@@ -26,6 +26,10 @@ anonymized
 geo
 geo-referenced
 Georeferenced
+xmin
+xmax
+ymin
+ymax
 IM
 csv
 interoperable
