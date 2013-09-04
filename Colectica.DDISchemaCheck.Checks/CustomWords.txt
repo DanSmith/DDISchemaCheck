@@ -28,6 +28,7 @@ geo-referenced
 Georeferenced
 IM
 csv
+interoperable
       
 CR
 LF
