@@ -250,7 +250,7 @@ namespace Colectica.DDISchemaCheck.Checks
             }
             else
             {
-                b.Append("<div class=\"alert alert-success\">All Attributes spelled correctly.</div>");
+                b.Append("<div class=\"alert alert-success\">All documentation spelled correctly.</div>");
             }
 
             return b.ToString();

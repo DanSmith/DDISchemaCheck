@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CustomWords.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Dictionaries\README_en_US.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
