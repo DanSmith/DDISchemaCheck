@@ -19,6 +19,7 @@ namespace Colectica.DDISchemaCheck.Checks
                 string formatVersion = string.Empty;
                 if (format == DdiFileFormat.Ddi31) { formatVersion = "3.1"; }
                 else if (format == DdiFileFormat.Ddi32) { formatVersion = "3.2"; }
+                else if (format == DdiFileFormat.Ddi33) { formatVersion = "3.3"; }
                 b.Append(string.Format("<div class=\"alert alert-success\"></span>Detected DDI Schema for Lifecycle version {0}</div>", formatVersion));
                 return true;
             }
@@ -62,6 +63,10 @@ namespace Colectica.DDISchemaCheck.Checks
                         {
                             return DdiFileFormat.Ddi31;
                         }
+                        else if (string.Compare(attribute, "ddi:instance:3_3", true) == 0)
+                        {
+                            return DdiFileFormat.Ddi33;
+                        }
                         throw new InvalidOperationException("The schema file is using an unknown namespace.");
                     }
                     throw new InvalidOperationException("The .xsd file was empty.");
@@ -81,6 +86,7 @@ namespace Colectica.DDISchemaCheck.Checks
         Ddi25 = 1,
         Ddi31 = 2,
         Ddi32 = 4,
+        Ddi33 = 5,
     }
 
 }

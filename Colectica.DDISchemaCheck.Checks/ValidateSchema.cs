@@ -97,12 +97,13 @@ namespace Colectica.DDISchemaCheck.Checks
             settings.DtdProcessing = DtdProcessing.Parse;
 
             // since there is a DTD entity in reusable, This is the only way I can get it to resolve
+            /*
             string reusable = Path.GetDirectoryName(filename) + Path.DirectorySeparatorChar +"reusable.xsd";
             using (XmlReader reader = XmlReader.Create(reusable, settings))
             {
                 XmlSchema xmlSchema = XmlSchema.Read(reader, new ValidationEventHandler(ValidationCallback));
                 xmlSchemaSet.Add(xmlSchema);
-            }
+            }*/
 
             using (XmlReader reader = XmlReader.Create(filename, settings))
             {
