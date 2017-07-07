@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/gu9v1pght2v2nw7o?svg=true)](https://ci.appveyor.com/project/DanSmith/ddischemacheck)
+
+
 DDI Schema Check
 ==============
 DDI Schema Check is a reporting tool that can check the internal structures and spelling of DDI Lifecycle Schema releases. Changes to the DDI Lifecycle can be tracked from 3.0-RC to 3.2 at <http://github.com/dansmith/ddi>
