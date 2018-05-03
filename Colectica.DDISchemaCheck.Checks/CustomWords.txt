@@ -1,8 +1,15 @@
-﻿DDI
+﻿http
+www
+ddialliance
+org
+
+Geospatial
+DDI
 Neuchatel
 Claset
 Eurobarometer
 Hennepin
+regroupings
 
 metadata
 versionable
