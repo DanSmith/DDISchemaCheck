@@ -12,6 +12,7 @@ DDI Schema Check is a reporting tool that can check the internal structures and 
     - Versionables and Maintainables are in a xs:Choice.
     - Versionables and Maintainables in a xs:Choice contain two elements.
     - Versionables and Maintainables in a xs:Choice contain a xxxReference.
+- All elements deriving from ReferenceType end in "Reference"
 - FragmentInstance contains all Versionables and Maintainables.
 - Type of Object for references
     - Duplicate Element names detected for referenceable types.
