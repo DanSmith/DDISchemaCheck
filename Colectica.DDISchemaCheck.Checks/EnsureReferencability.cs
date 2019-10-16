@@ -25,6 +25,8 @@ namespace Colectica.DDISchemaCheck.Checks
             List<Tuple<XmlQualifiedName, XmlSchemaElement>> noChoice = new List<Tuple<XmlQualifiedName, XmlSchemaElement>>();
             List<Tuple<XmlQualifiedName, XmlSchemaElement>> wrongFormatChoice = new List<Tuple<XmlQualifiedName, XmlSchemaElement>>();
             List<Tuple<XmlQualifiedName, XmlSchemaElement>> wrongNumberChoice = new List<Tuple<XmlQualifiedName, XmlSchemaElement>>();
+
+            List<Tuple<XmlQualifiedName, XmlSchemaElement>> noReferencePrefix = new List<Tuple<XmlQualifiedName, XmlSchemaElement>>();
             foreach (var tuple in elementsFound)
             {
                 XmlSchemaElement element = tuple.Item2;
@@ -72,6 +74,14 @@ namespace Colectica.DDISchemaCheck.Checks
                             }
                         }
 
+                    }
+                }
+
+                if (ct.AttributeUses.Values.Cast<XmlSchemaAttribute>().Any(a => a.Name == "isReference"))
+                {
+                    if (!element.QualifiedName.Name.EndsWith("Reference"))
+                    {
+                        noReferencePrefix.Add(tuple);
                     }
                 }
             }
@@ -167,6 +177,34 @@ namespace Colectica.DDISchemaCheck.Checks
                 b.Append("<div class=\"alert alert-success\">Correct number of elements in all Versionables and Maintainables referenceable xs:Choice format.</div>");
             }
 
+
+            if (noReferencePrefix.Count > 0)
+            {
+                b.Append(@"<div class=""alert alert-danger"">A ReferenceType should end in ""Reference"".</div>");
+                b.AppendLine(@"<table class=""table"">
+                                <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Item</th>
+                                    <th>No ending Reference</th>
+                                  </tr>
+                                </thead>
+                                <tbody>");
+                int i = 1;
+
+                foreach (var n in noReferencePrefix.OrderBy(x => x.Item1.ToString()))
+                {
+                    b.Append(string.Format(tableRow,
+                            i++,
+                            n.Item2.QualifiedName.ToString(),
+                            n.Item1.ToString()));
+                }
+                b.AppendLine("</table>");
+            }
+            else
+            {
+                b.Append("<div class=\"alert alert-success\">All ReferenceTypes end with \"Reference\".</div>");
+            }
             return b.ToString();
         }
     }
