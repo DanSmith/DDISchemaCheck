@@ -32,7 +32,7 @@ If you would like to contribute a new check, create a new class with a method th
 ## Sponsor
 This work is sponsored by [Colectica](http://www.colectica.com), creators of DDI Lifecycle based software.
 
-![Colectica](http://colectica.com/sites/colectica.com/files/images/colectica-web.png)
+![Colectica](https://www.colectica.com/img/colectica-web.png)
 
 ## License
 This code is released under the GNU Lesser General Public License.
