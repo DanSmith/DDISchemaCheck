@@ -76,12 +76,18 @@ namespace Colectica.DDISchemaCheck.Checks
 
                     }
                 }
+            }
+
+            foreach(var element in schema.GlobalElements.Values.OfType<XmlSchemaElement>())
+            {
+                XmlSchemaComplexType ct = element.ElementSchemaType as XmlSchemaComplexType;
+                if (ct == null) { continue; }
 
                 if (ct.AttributeUses.Values.Cast<XmlSchemaAttribute>().Any(a => a.Name == "isReference"))
                 {
                     if (!element.QualifiedName.Name.EndsWith("Reference"))
                     {
-                        noReferencePrefix.Add(tuple);
+                        noReferencePrefix.Add(new Tuple<XmlQualifiedName, XmlSchemaElement>(element.QualifiedName,element));
                     }
                 }
             }
